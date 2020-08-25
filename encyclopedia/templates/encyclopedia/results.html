@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia | Results
+{% endblock %}
+
+{% block body %}
+    <h1>Results for "{{ query }}"</h1>
+
+    <ul>
+        {% for result in results %}
+            <li>
+                <a href="{% url 'entry_page' title=result %}">{{ result }}</a>
+            </li>
+        {% empty %}
+            Your search did not match anything in our database. Make sure all words are spelled and capitalized correctly.
+        {% endfor %}
+    </ul>
+
+{% endblock %}
